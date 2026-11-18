@@ -17,6 +17,7 @@
     <nav class="nav">
       <button class="nav-link active" data-view="home">Главная</button>
       <button class="nav-link" data-view="catalog">Каталог</button>
+      <button class="nav-link" data-view="bebop">BEBOP / СЕРИИ</button>
       <button class="nav-link" data-view="lists">Мои списки</button>
       <button class="nav-link" data-view="player">Плеер</button>
       <button class="nav-link" data-view="profile">Профиль</button>
@@ -72,6 +73,12 @@
       <p class="empty-state hidden" id="catalogEmpty">Ничего не найдено. Попробуй другой запрос.</p>
     </section>
 
+    <section class="section bebop-section hidden" id="bebopView">
+      <div class="bebop-hero"><div class="bebop-copy"><p class="eyebrow">SPECIAL TRANSMISSION · 1998</p><h2>COWBOY<br><em>BEBOP</em><span class="red-dot">.</span></h2><p>26 эпизодов. Джаз, космос и охотники за головами. Отмечай просмотр и открывай локальные видеофайлы для воспроизведения.</p><div class="bebop-progress"><div class="progress-bar"><div class="progress-fill" id="bebopProgressFill"></div></div><span id="bebopProgressText">0 / 26 · 0%</span></div></div><div class="bebop-art"><div class="bebop-sun"></div><span class="bebop-stamp">SEE YOU<br>SPACE<br>COWBOY</span><span class="bebop-art-label">SESSION 26 · THE FINAL BLUES</span></div></div>
+      <div class="bebop-toolbar"><div><p class="eyebrow">EPISODE DATABASE</p><h3>СПИСОК СЕРИЙ</h3></div><button class="btn btn-ghost" id="bebopReset">Сбросить прогресс</button></div>
+      <div class="episode-grid" id="episodeGrid"></div>
+      <div class="bebop-player-box"><div><p class="eyebrow">LOCAL SCREENING</p><h3 id="episodePlayerTitle">ВЫБЕРИ СЕРИЮ</h3><p id="episodePlayerHint">Можно выбрать видеофайл с устройства для текущей серии.</p></div><label class="file-picker">＋ Открыть файл серии<input id="episodeVideoFile" type="file" accept="video/*"></label></div>
+    </section>
     <section class="section detail-section hidden" id="detailView"></section>
     <section class="section profile-section hidden" id="profileView">
       <div class="section-heading"><div><p class="eyebrow">05 — YOUR PERSONAL LOG</p><h2>ПРОФИЛЬ<span class="red-dot">.</span></h2></div><button class="btn btn-primary" id="editProfileBtn">Изменить профиль ↗</button></div>
