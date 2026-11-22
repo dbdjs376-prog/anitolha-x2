@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101114">
+  <title>SPACE COWBOY — Anime Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="SPACE COWBOY — главная"><span class="brand-mark">✳</span><span>SPACE <b>COWBOY</b></span></a>
+    <nav class="nav">
+      <button class="nav-link active" data-view="home">Главная</button>
+      <button class="nav-link" data-view="catalog">Каталог</button>
+      <button class="nav-link" data-view="bebop">BEBOP / СЕРИИ</button>
+      <button class="nav-link" data-view="lists">Мои списки</button>
+      <button class="nav-link" data-view="player">Плеер</button>
+      <button class="nav-link" data-view="profile">Профиль</button>
+      <button class="nav-link" data-view="schedule">План</button>
+    </nav>
+    <button class="profile-chip" id="profileButton"><span class="status-dot"></span> BOUNTY HUNTER</button>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Открыть меню">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> THE ANIME FRONTIER · EST. 2071</p>
+        <h1>YOUR NEXT<br><em>ADVENTURE</em><br>STARTS HERE<span class="red-dot">.</span></h1>
+        <p class="hero-text">Собирай свою коллекцию. Охоться за новыми историями. Твоя личная база аниме — где бы ни закончилась дорога.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-go="catalog">Исследовать каталог <span>↗</span></button>
+          <button class="btn btn-ghost" data-go="lists">Мои списки <span>→</span></button>
+        </div>
+        <div class="hero-meta"><span><i class="pulse"></i> ARCHIVE ONLINE</span><span>NO DESTINATION · JUST STORIES</span></div>
+      </div>
+      <div class="hero-art" aria-label="Ретрофутуристическая иллюстрация космического путешествия">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="planet"></div><div class="planet-small"></div>
+        <div class="sun"></div><div class="ship">✦</div>
+        <div class="hero-stamp">SPACE<br>IS THE<br>PLACE</div>
+        <div class="art-caption">FIG. 01 — THE GREAT UNKNOWN</div>
+      </div>
+      <div class="hero-index">01 <span>/</span> 03</div>
+    </section>
+
+    <section class="ticker" aria-label="Девиз"><div class="ticker-track">SEE YOU, SPACE COWBOY <b>✳</b> KEEP YOUR EYES ON THE STARS <b>✳</b> THE UNIVERSE IS YOURS <b>✳</b> SEE YOU, SPACE COWBOY <b>✳</b></div></section>
+
+    <section class="stats-row">
+      <div><span class="stat-number" id="statAnime">08</span><span class="stat-label">В АРХИВЕ</span></div>
+      <div><span class="stat-number" id="statLists">00</span><span class="stat-label">ТВОИХ СПИСКОВ</span></div>
+      <div><span class="stat-number" id="statWatched">00</span><span class="stat-label">ПРОСМОТРЕНО</span></div>
+      <p>“Whatever happens,<br>happens.” <span>— SPACE COWBOY</span></p>
+    </section>
+
+    <section class="section featured-section" id="featured">
+      <div class="section-heading"><div><p class="eyebrow">01 — HANDPICKED TRANSMISSIONS</p><h2>НА РАДАРЕ<span class="red-dot">.</span></h2></div><button class="text-link" data-go="catalog">Весь каталог <span>↗</span></button></div>
+      <div class="anime-grid" id="featuredGrid"></div>
+    </section>
+
+    <section class="section discovery-section" id="discoverySection">
+      <div class="section-heading"><div><p class="eyebrow">02 — SIGNALS FROM THE UNIVERSE</p><h2>ТВОЙ СЛЕДУЮЩИЙ МАРШРУТ<span class="red-dot">.</span></h2></div><span class="mini-label">PERSONAL PICKS</span></div>
+      <div class="anime-grid" id="recommendGrid"></div>
+    </section>
+
+    <section class="section catalog-section hidden" id="catalogView">
+      <div class="section-heading"><div><p class="eyebrow">02 — DEEP SPACE ARCHIVE</p><h2>КАТАЛОГ<span class="red-dot">.</span></h2></div><button class="btn btn-primary" id="addAnimeBtn">＋ Добавить аниме</button></div>
+      <div class="filters">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Найти аниме..."></label>
+        <select id="genreFilter"><option value="all">Все жанры</option></select>
+        <select id="sortFilter"><option value="default">По умолчанию</option><option value="az">Название: А—Я</option><option value="year">Сначала новые</option><option value="rating">По моей оценке</option></select>
+      </div>
+      <div class="anime-grid" id="catalogGrid"></div>
+      <p class="empty-state hidden" id="catalogEmpty">Ничего не найдено. Попробуй другой запрос.</p>
+    </section>
+
+    <section class="section bebop-section hidden" id="bebopView">
+      <div class="bebop-hero"><div class="bebop-copy"><p class="eyebrow">SPECIAL TRANSMISSION · 1998</p><h2>COWBOY<br><em>BEBOP</em><span class="red-dot">.</span></h2><p>26 эпизодов. Джаз, космос и охотники за головами. Отмечай просмотр и открывай локальные видеофайлы для воспроизведения.</p><div class="bebop-progress"><div class="progress-bar"><div class="progress-fill" id="bebopProgressFill"></div></div><span id="bebopProgressText">0 / 26 · 0%</span></div></div><div class="bebop-art"><div class="bebop-sun"></div><span class="bebop-stamp">SEE YOU<br>SPACE<br>COWBOY</span><span class="bebop-art-label">SESSION 26 · THE FINAL BLUES</span></div></div>
+      <div class="bebop-toolbar"><div><p class="eyebrow">EPISODE DATABASE</p><h3>СПИСОК СЕРИЙ</h3></div><div class="episode-toolbar-actions"><button class="btn btn-primary" id="addYoutubeEpisodeBtn">＋ Добавить серию с YouTube</button><button class="btn btn-ghost" id="bebopReset">Сбросить прогресс</button></div></div>
+      <form class="youtube-episode-form hidden" id="youtubeEpisodeForm">
+        <label>Номер серии<input id="youtubeEpisodeNumber" type="number" min="1" max="999" required placeholder="27"></label>
+        <label>Название серии<input id="youtubeEpisodeTitle" maxlength="100" required placeholder="Название серии"></label>
+        <label class="youtube-url-field">Ссылка на YouTube<input id="youtubeEpisodeUrl" type="url" required placeholder="https://www.youtube.com/watch?v=..."></label>
+        <div class="youtube-form-actions"><button class="btn btn-primary" type="submit">Сохранить серию</button><button class="btn btn-ghost" type="button" id="cancelYoutubeEpisode">Отмена</button></div>
+        <p class="form-note">Добавляй ссылки только на видео, которые разрешено встраивать и распространять.</p>
+      </form>
+      <div class="episode-grid" id="episodeGrid"></div>
+      <div class="bebop-player-box"><div><p class="eyebrow">EPISODE SCREENING</p><h3 id="episodePlayerTitle">ВЫБЕРИ СЕРИЮ</h3><p id="episodePlayerHint">Выбери серию с YouTube или открой видеофайл с устройства.</p></div><label class="file-picker">＋ Открыть файл серии<input id="episodeVideoFile" type="file" accept="video/*"></label></div>
+      <div class="youtube-player-wrap hidden" id="youtubeEpisodePlayer"><iframe id="youtubeEpisodeFrame" title="YouTube episode player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    </section>
+    <section class="section schedule-section hidden" id="scheduleView">
+      <div class="section-heading"><div><p class="eyebrow">06 — YOUR NEXT DESTINATIONS</p><h2>ПЛАН ПРОСМОТРА<span class="red-dot">.</span></h2></div></div>
+      <div class="schedule-panel"><div><h3>ЗАПЛАНИРОВАТЬ СЕАНС</h3><p>Добавь аниме и дату, чтобы не забыть вернуться к нему.</p></div>
+        <form id="scheduleForm" class="schedule-form"><label>Аниме<select id="scheduleAnime" required></select></label><label>Дата<input id="scheduleDate" type="date" required></label><button class="btn btn-primary" type="submit">＋ Добавить</button></form>
+      </div>
+      <div id="scheduleList" class="schedule-list"></div>
+    </section>
+    <section class="section detail-section hidden" id="detailView"></section>
+    <section class="section profile-section hidden" id="profileView">
+      <div class="section-heading"><div><p class="eyebrow">05 — YOUR PERSONAL LOG</p><h2>ПРОФИЛЬ<span class="red-dot">.</span></h2></div><button class="btn btn-primary" id="editProfileBtn">Изменить профиль ↗</button></div>
+      <div id="profileContent"></div>
+      <div class="profile-block backup-block"><h3>РЕЗЕРВНАЯ КОПИЯ</h3><p class="list-description">Экспортируй свои списки, оценки и прогресс в файл. Его можно импортировать на другом устройстве.</p><div class="backup-actions"><button class="btn btn-primary" id="exportData">↓ Скачать резервную копию</button><label class="btn btn-ghost import-label">↑ Импортировать копию<input id="importData" type="file" accept="application/json,.json"></label></div><p class="mini-label">ДАННЫЕ ХРАНЯТСЯ В ЭТОМ БРАУЗЕРЕ. АВТОМАТИЧЕСКОЙ ОБЛАЧНОЙ СИНХРОНИЗАЦИИ НЕТ.</p></div>
+    </section>
+    <section class="section player-section hidden" id="playerView">
+      <div class="section-heading"><div><p class="eyebrow">04 — PRIVATE SCREENING ROOM</p><h2>КИНОЗАЛ<span class="red-dot">.</span></h2></div><span class="player-status"><i class="pulse"></i> LOCAL PLAYER</span></div>
+      <div class="player-layout">
+        <div class="screening-frame" id="screeningFrame">
+          <video id="videoPlayer" preload="metadata" playsinline></video>
+          <div class="player-placeholder" id="playerPlaceholder">
+            <div class="placeholder-sun"></div><div class="placeholder-orbit"></div>
+            <span class="placeholder-kicker">SPACE COWBOY PRESENTS</span>
+            <strong>YOUR<br><em>NEXT FRAME.</em></strong>
+            <span class="placeholder-caption">ЗАГРУЗИ СВОЁ ВИДЕО И УСТРОЙСЯ ПОУДОБНЕЕ</span>
+          </div>
+          <div class="player-overlay" id="playerOverlay">
+            <button class="big-play" id="bigPlay" aria-label="Воспроизвести">▶</button>
+          </div>
+        </div>
+        <div class="player-controls">
+          <div class="player-control-top">
+            <label class="file-picker">＋ Открыть видео<input id="videoFile" type="file" accept="video/*"></label>
+            <span class="now-playing" id="nowPlaying">NO SIGNAL · ФАЙЛ НЕ ВЫБРАН</span>
+          </div>
+          <div class="timeline-row"><span id="currentTime">00:00</span><input id="seekBar" type="range" min="0" max="1000" value="0" aria-label="Позиция видео"><span id="duration">00:00</span></div>
+          <div class="control-row">
+            <div class="control-group"><button class="player-btn" id="playPause" aria-label="Воспроизвести">▶</button><button class="player-btn" id="muteButton" aria-label="Звук">♪</button><input id="volumeBar" class="volume-bar" type="range" min="0" max="1" step="0.05" value="0.8" aria-label="Громкость"></div>
+            <div class="control-group"><label class="speed-label">SPEED <select id="speedSelect"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label><button class="player-btn" id="fullscreenButton" aria-label="На весь экран">⛶</button></div>
+          </div>
+          <p class="player-hint">Плеер воспроизводит видеофайлы с твоего устройства. Выбирай только те материалы, которые имеешь право смотреть.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section lists-section hidden" id="listsView">
+      <div class="section-heading"><div><p class="eyebrow">03 — YOUR PERSONAL COLLECTION</p><h2>МОИ СПИСКИ<span class="red-dot">.</span></h2></div><button class="btn btn-primary" id="createListBtn">＋ Новый список</button></div>
+      <div class="list-layout">
+        <aside class="list-sidebar"><p class="mini-label">YOUR COLLECTIONS</p><div id="listTabs"></div><div class="sidebar-note">ТВОЯ КОЛЛЕКЦИЯ<br><span>Только твои правила.</span></div></aside>
+        <div class="list-content" id="listContent"></div>
+      </div>
+    </section>
+
+    <section class="bottom-banner"><div><p class="eyebrow">END OF TRANSMISSION</p><h2>DON'T LOSE<br>YOUR <em>WAY.</em></h2></div><div class="banner-right"><p>Каждая история — новая галактика.<br>Сохрани ту, в которую хочешь вернуться.</p><button class="btn btn-light" data-go="lists">Открыть коллекцию ↗</button></div><span class="banner-star">✳</span></section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">✳</span><span>SPACE <b>COWBOY</b></span></a><span>MADE FOR THE LONG WAY HOME.</span><span>© 2071 — ALL SYSTEMS NOMINAL</span></footer>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Закрыть">×</button>
+      <p class="eyebrow" id="modalEyebrow">NEW TRANSMISSION</p><h2 id="modalTitle">Добавить аниме</h2>
+      <form id="animeForm" class="modal-form">
+        <label>Название<input name="title" required maxlength="70" placeholder="Например, Cowboy Bebop"></label>
+        <div class="form-row"><label>Год<input name="year" type="number" min="1900" max="2100" placeholder="1998"></label><label>Эпизоды<input name="episodes" type="number" min="1" max="9999" placeholder="26"></label></div>
+        <label>Жанр<input name="genre" maxlength="35" placeholder="Sci-fi, приключения"></label>
+        <label>Короткое описание<textarea name="description" rows="3" maxlength="220" placeholder="О чём эта история?"></textarea></label>
+        <label>Ссылка на обложку (необязательно)<input name="cover" type="url" placeholder="https://example.com/poster.jpg"></label>
+        <label>Цвет постера<select name="tone"><option value="rust">Ржаво-красный</option><option value="gold">Золотой</option><option value="blue">Космический синий</option><option value="violet">Фиолетовый</option><option value="green">Пустынный зелёный</option></select></label>
+        <button class="btn btn-primary form-submit" type="submit">Сохранить в архив ↗</button>
+      </form>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
